@@ -1,7 +1,4 @@
 """Load reaclib ACSII file"""
-import struct
-import numpy as np
-import re
 
 def getnamebyz(z):
 	"""
