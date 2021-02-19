@@ -1,4 +1,6 @@
-import re
+import python
+
+import struct
 
 """This is a very simple helloWorld python script"""
 
