@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>API Reference &mdash; Recommonmark 0.7.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AutoStructify Component" href="auto_structify.html" />
+    <link rel="prev" title="recommonmark" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Recommonmark
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parser-component">Parser Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dummy-state-machine">Dummy State Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autostructify-transformer">AutoStructify Transformer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="auto_structify.html">AutoStructify Component</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Recommonmark</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>API Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/api_ref.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<p>This document is for developers of recommonmark, it contans the API functions</p>
+<div class="section" id="parser-component">
+<h2>Parser Component<a class="headerlink" href="#parser-component" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="recommonmark.parser.CommonMarkParser">
+<em class="property">class </em><code class="descclassname">recommonmark.parser.</code><code class="descname">CommonMarkParser</code><a class="headerlink" href="#recommonmark.parser.CommonMarkParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">docutils.parsers.Parser</span></code></p>
+<p>Docutils parser for CommonMark</p>
+<dl class="method">
+<dt id="recommonmark.parser.CommonMarkParser.default_depart">
+<code class="descname">default_depart</code><span class="sig-paren">(</span><em>mdnode</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.parser.CommonMarkParser.default_depart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default node depart handler</p>
+<p>If there is a matching <code class="docutils literal notranslate"><span class="pre">visit_&lt;type&gt;</span></code> method for a container node,
+then we should make sure to back up to it’s parent element when the node
+is exited.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="recommonmark.parser.CommonMarkParser.depart_heading">
+<code class="descname">depart_heading</code><span class="sig-paren">(</span><em>_</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.parser.CommonMarkParser.depart_heading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finish establishing section</p>
+<p>Wrap up title node, but stick in the section node. Add the section names
+based on all the text nodes added to the title.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="dummy-state-machine">
+<h2>Dummy State Machine<a class="headerlink" href="#dummy-state-machine" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="recommonmark.states.DummyStateMachine">
+<em class="property">class </em><code class="descclassname">recommonmark.states.</code><code class="descname">DummyStateMachine</code><a class="headerlink" href="#recommonmark.states.DummyStateMachine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">docutils.statemachine.StateMachineWS</span></code></p>
+<p>A dummy state machine that mimicks the property of statemachine.</p>
+<p>This state machine cannot be used for parsing, it is only used to generate
+directive and roles. Usage:
+- Call <cite>reset</cite> to reset the state
+- Then call <cite>run_directive</cite> or <cite>run_role</cite> to generate the node.</p>
+<dl class="method">
+<dt id="recommonmark.states.DummyStateMachine.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><em>document</em>, <em>parent</em>, <em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.states.DummyStateMachine.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the state of state machine.</p>
+<p>After reset, self and self.state can be used to
+passed to docutils.parsers.rst.Directive.run</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>document</strong> (<em>docutils document</em>) – Current document of the node.</li>
+<li><strong>parent</strong> (<em>parent node</em>) – Parent node that will be used to interpret role and directives.</li>
+<li><strong>level</strong> (<em>int</em>) – Current section level.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="recommonmark.states.DummyStateMachine.run_directive">
+<code class="descname">run_directive</code><span class="sig-paren">(</span><em>name</em>, <em>arguments=None</em>, <em>options=None</em>, <em>content=None</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.states.DummyStateMachine.run_directive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate directive node given arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) – name of directive.</li>
+<li><strong>arguments</strong> (<em>list</em>) – list of positional arguments.</li>
+<li><strong>options</strong> (<em>dict</em>) – key value arguments.</li>
+<li><strong>content</strong> (<em>content</em>) – content of the directive</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>node</strong> – Node generated by the arguments.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">docutil Node</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="recommonmark.states.DummyStateMachine.run_role">
+<code class="descname">run_role</code><span class="sig-paren">(</span><em>name</em>, <em>options=None</em>, <em>content=None</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.states.DummyStateMachine.run_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a role node.</p>
+<dl class="docutils">
+<dt>options <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd>key value arguments.</dd>
+<dt>content <span class="classifier-delimiter">:</span> <span class="classifier">content</span></dt>
+<dd>content of the directive</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>node</strong> – Node generated by the arguments.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">docutil Node</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="autostructify-transformer">
+<h2>AutoStructify Transformer<a class="headerlink" href="#autostructify-transformer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="recommonmark.transform.AutoStructify">
+<em class="property">class </em><code class="descclassname">recommonmark.transform.</code><code class="descname">AutoStructify</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.transform.AutoStructify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">docutils.transforms.Transform</span></code></p>
+<p>Automatically try to transform blocks to sphinx directives.</p>
+<p>This class is designed to handle AST generated by CommonMarkParser.</p>
+<dl class="method">
+<dt id="recommonmark.transform.AutoStructify.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.transform.AutoStructify.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the transformation by configuration.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="recommonmark.transform.AutoStructify.auto_code_block">
+<code class="descname">auto_code_block</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.transform.AutoStructify.auto_code_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to automatically generate nodes for codeblock syntax.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> (<em>nodes.literal_block</em>) – Original codeblock node</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>tocnode</strong> – The converted toc tree node, None if conversion is not possible.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">docutils node</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="recommonmark.transform.AutoStructify.auto_inline_code">
+<code class="descname">auto_inline_code</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.transform.AutoStructify.auto_inline_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to automatically generate nodes for inline literals.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> (<em>nodes.literal</em>) – Original codeblock node</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>tocnode</strong> – The converted toc tree node, None if conversion is not possible.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">docutils node</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="recommonmark.transform.AutoStructify.auto_toc_tree">
+<code class="descname">auto_toc_tree</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.transform.AutoStructify.auto_toc_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to convert a list block to toctree in rst.</p>
+<p>This function detects if the matches the condition and return
+a converted toc tree node. The matching condition:
+The list only contains one level, and only contains references</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> (<em>nodes.Sequential</em>) – A list node in the doctree</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>tocnode</strong> – The converted toc tree node, None if conversion is not possible.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">docutils node</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="recommonmark.transform.AutoStructify.find_replace">
+<code class="descname">find_replace</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.transform.AutoStructify.find_replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find replace node for current node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>node</strong> (<em>docutil node</em>) – Node to find replacement for.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>nodes</strong> – The replacement nodes of current node.
+Returns None if no replacement can be found.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">node or list of node</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="recommonmark.transform.AutoStructify.parse_ref">
+<code class="descname">parse_ref</code><span class="sig-paren">(</span><em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.transform.AutoStructify.parse_ref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analyze the ref block, and return the information needed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ref</strong> (<em>nodes.reference</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>result</strong> – The returned result is tuple of (title, uri, docpath).
+title is the display title of the ref.
+uri is the html uri of to the ref after resolve.
+docpath is the absolute document path to the document, if
+the target corresponds to an internal document, this can bex None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple of (str, str, str)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="recommonmark.transform.AutoStructify.traverse">
+<code class="descname">traverse</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#recommonmark.transform.AutoStructify.traverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Traverse the document tree rooted at node.</p>
+<dl class="docutils">
+<dt>node <span class="classifier-delimiter">:</span> <span class="classifier">docutil node</span></dt>
+<dd>current root node to traverse</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="auto_structify.html" class="btn btn-neutral float-right" title="AutoStructify Component" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="recommonmark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2015, Luca Barbato, Eric Holscher, and contributors.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
