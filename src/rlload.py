@@ -49,7 +49,7 @@ def getZ(input):
 def getA(input):
 	"""
 	Get mass number A by inputing isotope name
-	
+
 	Parameter:
 		input(str): isotope name (example: zr110)
 	"""
@@ -70,64 +70,3 @@ def getA(input):
 				print "Something wrong! ",input
 		else:
 			return int(sep[1])
-
-def load_txt(infile):
-	n_lines = sum(1 for line in open(infile))
-	file1 = open(infile);
-	count = 0
-	reaclib=[]
-	while True:
-			count+=1
-			line1 = file1.readline()
-			line2 = file1.readline()
-			line3 = file1.readline()
-			line4 = file1.readline()
-			#break
-			if (not line1 or not line2 or not line3 or not line4):
-				break
-			#line1
-			chap = int(line1)
-			#line2
-			(empty1,nuc1,nuc2,nuc3,nuc4,nuc5,nuc6,empty2,label,rtype,rev_f,emtpy3,Qval,emtpy4) = struct.unpack("5s5s5s5s5s5s5s8s4s1s1s3s12s10sx",line2)
-			#strip spaces all
-			(empty1,nuc1,nuc2,nuc3,nuc4,nuc5,nuc6,empty2,label,rtype,rev_f,emtpy3,Qval,emtpy4) = map(lambda x: x.strip(),(empty1,nuc1,nuc2,nuc3,nuc4,nuc5,nuc6,empty2,label,rtype,rev_f,emtpy3,Qval,emtpy4))
-			# get A and Z
-			(nuc1_z,nuc2_z,nuc3_z,nuc4_z,nuc5_z,nuc6_z)=map(lambda x: getZ(x),(nuc1,nuc2,nuc3,nuc4,nuc5,nuc6));
-			(nuc1_a,nuc2_a,nuc3_a,nuc4_a,nuc5_a,nuc6_a)=map(lambda x: getA(x),(nuc1,nuc2,nuc3,nuc4,nuc5,nuc6));
-			#values
-			Qval=float(Qval.strip())
-			#line3
-			(a0,a1,a2,a3,empty1) = struct.unpack("13s13s13s13s22sx",line3)
-			(a0,a1,a2,a3) = map(float,(a0,a1,a2,a3))
-			#line4
-			(a4,a5,a6,empty1) = struct.unpack("13s13s13s35sx",line4)
-			(a4,a5,a6) = map(float,(a4,a5,a6))
-			reaclib.append({"chap":chap,"nuc":[nuc1,nuc2,nuc3,nuc4,nuc5,nuc6],"nucA":[nuc1_a,nuc2_a,nuc3_a,nuc4_a,nuc5_a,nuc6_a],"nucZ":[nuc1_z,nuc2_z,nuc3_z,nuc4_z,nuc5_z,nuc6_z],"label":label,"rtype":rtype,"reverse":rev_f,
-				"Qval":Qval,"rate":[a0,a1,a2,a3,a4,a5,a6]})
-	if n_lines!=count*4-4:
-		print "Can not read all content!"
-	#else:
-		#print "Read",len(reaclib),"entries!"
-	return reaclib
-
-def load_bin(infile):
-	return np.load(infile,allow_pickle='TRUE')
-
-def dump_txt(reaclib):
-	for index in range(len(reaclib)):
-		print("{0:d}".format(reaclib[index]["chap"]))
-		tmp="{:>5s}{:>5s}{:>5s}{:>5s}{:>5s}{:>5s}{:>5s}{:>8s}{:>4s}{:>1s}{:>1s}{:>3s}{:>12.5e}{:>10s}".format("",reaclib[index]["nuc"][0],reaclib[index]["nuc"][1],reaclib[index]["nuc"][2],reaclib[index]["nuc"][3],
-			reaclib[index]["nuc"][4],reaclib[index]["nuc"][5],"",reaclib[index]["label"],reaclib[index]["rtype"],reaclib[index]["reverse"],"",reaclib[index]["Qval"],"")
-		#print replacesign(tmp,52)
-		print tmp
-		tmp="{:>13.6e}{:>13.6e}{:>13.6e}{:>13.6e}{:>22s}".format(reaclib[index]["rate"][0],reaclib[index]["rate"][1],reaclib[index]["rate"][2],reaclib[index]["rate"][3],"")
-		print tmp
-		tmp="{:>13.6e}{:>13.6e}{:>13.6e}{:>35s}".format(reaclib[index]["rate"][4],reaclib[index]["rate"][5],reaclib[index]["rate"][6],"")
-		print tmp
-		
-def dump_bin(reaclib,outfile):
-	np.save(outfile,reaclib)
-
-def convert(infile,outfile):
-	reaclib=load_txt(infile)
-	dump(reaclib,outfile)
