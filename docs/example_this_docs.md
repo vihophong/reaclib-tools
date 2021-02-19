@@ -1,4 +1,4 @@
-Exmaple this docs
+Example this docs
 =======================
 
 Title 1
