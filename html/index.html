@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>recommonmark &mdash; Recommonmark 0.7.1 documentation</title>
+  <title>Home &mdash; Recommonmark 0.7.1 documentation</title>
   
 
   
@@ -33,13 +33,14 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API Reference" href="api_ref.html" /> 
+    <link rel="next" title="API Reference" href="rlload_def.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,8 +90,8 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="api_ref.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_structify.html">AutoStructify Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlload_def.html">Reaclib manipulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_this_docs.html">Example this docs</a></li>
 </ul>
 
             
@@ -139,7 +140,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>recommonmark</li>
+      <li>Home</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,140 +159,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="recommonmark">
-<h1>recommonmark<a class="headerlink" href="#recommonmark" title="Permalink to this headline">¶</a></h1>
-<p>A <code class="docutils literal notranslate"><span class="pre">docutils</span></code>-compatibility bridge to <a class="reference external" href="http://commonmark.org">CommonMark</a>.</p>
-<p>This allows you to write CommonMark inside of Docutils &amp; Sphinx projects.</p>
-<p>Documentation is available on Read the Docs: <a class="reference external" href="http://recommonmark.readthedocs.org">http://recommonmark.readthedocs.org</a></p>
+  <div class="section" id="home">
+<h1>Home<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api_ref.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_structify.html">AutoStructify Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlload_def.html">Reaclib manipulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_this_docs.html">Example this docs</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>To use <code class="docutils literal notranslate"><span class="pre">recommonmark</span></code> inside of Sphinx only takes 2 steps.
-First you install it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">recommonmark</span> 
-</pre></div>
-</div>
-<p>Then add this to your Sphinx conf.py:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Sphinx-1.4 or newer</span>
-<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;recommonmark&#39;</span><span class="p">]</span>
-
-<span class="c1"># for Sphinx-1.3</span>
-<span class="kn">from</span> <span class="nn">recommonmark.parser</span> <span class="k">import</span> <span class="n">CommonMarkParser</span>
-
-<span class="n">source_parsers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;.md&#39;</span><span class="p">:</span> <span class="n">CommonMarkParser</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="n">source_suffix</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.rst&#39;</span><span class="p">,</span> <span class="s1">&#39;.md&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>This allows you to write both <code class="docutils literal notranslate"><span class="pre">.md</span></code> and <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files inside of the same project.</p>
-<div class="section" id="links">
-<h3>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
-<p>For all links in commonmark that aren’t explicit URLs, they are treated as cross references with the <a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/inline.html#role-any"><code class="docutils literal notranslate"><span class="pre">:any:</span></code></a> role. This allows referencing a lot of things including files, labels, and even objects in the loaded domain.</p>
-<div class="section" id="linking-to-headings-in-other-files">
-<h4>Linking to headings in other files<a class="headerlink" href="#linking-to-headings-in-other-files" title="Permalink to this headline">¶</a></h4>
-<p>For linking to headings in other files you can use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosectionlabel.html"><code class="docutils literal notranslate"><span class="pre">autosectionlabel</span></code></a> sphinx feature, e.g.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># conf.py</span>
-
-<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># Auto-generate section labels.</span>
-    <span class="s1">&#39;sphinx.ext.autosectionlabel&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="c1"># Prefix document path to section labels, otherwise autogenerated labels would look like &#39;heading&#39;</span>
-<span class="c1"># rather than &#39;path/to/file:heading&#39;</span>
-<span class="n">autosectionlabel_prefix_document</span> <span class="o">=</span> <span class="bp">True</span>
-</pre></div>
-</div>
-<p>You would use it like:</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>&lt;!-- path/to/file_1.md --&gt;
-
-# Title
-
-## My Subtitle
-</pre></div>
-</div>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>&lt;!-- file_2.md --&gt;
-
-[My Subtitle][]
-
-[My Subtitle]: &lt;path/to/file_1:My Subtitle&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="autostructify">
-<h3>AutoStructify<a class="headerlink" href="#autostructify" title="Permalink to this headline">¶</a></h3>
-<p>AutoStructify makes it possible to write your documentation in Markdown, and automatically convert this
-into rST at build time. See <a class="reference external" href="http://recommonmark.readthedocs.org/en/latest/auto_structify.html">the AutoStructify Documentation</a>
-for more information about configuration and usage.</p>
-<p>To use the advanced markdown to rst transformations you must add <code class="docutils literal notranslate"><span class="pre">AutoStructify</span></code> to your Sphinx conf.py.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># At top on conf.py (with other import statements)</span>
-<span class="kn">import</span> <span class="nn">recommonmark</span>
-<span class="kn">from</span> <span class="nn">recommonmark.transform</span> <span class="kn">import</span> <span class="n">AutoStructify</span>
-
-<span class="c1"># At the bottom of conf.py</span>
-<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_config_value</span><span class="p">(</span><span class="s1">&#39;recommonmark_config&#39;</span><span class="p">,</span> <span class="p">{</span>
-            <span class="s1">&#39;url_resolver&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">url</span><span class="p">:</span> <span class="n">github_doc_root</span> <span class="o">+</span> <span class="n">url</span><span class="p">,</span>
-            <span class="s1">&#39;auto_toc_tree_section&#39;</span><span class="p">:</span> <span class="s1">&#39;Contents&#39;</span><span class="p">,</span>
-            <span class="p">},</span> <span class="bp">True</span><span class="p">)</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_transform</span><span class="p">(</span><span class="n">AutoStructify</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>See https://github.com/rtfd/recommonmark/blob/master/docs/conf.py for a full example.</p>
-<p>AutoStructify comes with the following options. See <a class="reference external" href="http://recommonmark.readthedocs.org/en/latest/auto_structify.html">http://recommonmark.readthedocs.org/en/latest/auto_structify.html</a> for more information about the specific features.</p>
-<ul class="simple">
-<li><strong>enable_auto_toc_tree</strong>: enable the Auto Toc Tree feature.</li>
-<li><strong>auto_toc_maxdepth</strong>: The max depth of the Auto Toc. Defaults to 1.</li>
-<li><strong>auto_toc_tree_section</strong>: when True, Auto Toc Tree will only be enabled on section that matches the title.</li>
-<li><strong>enable_auto_doc_ref</strong>: enable the Auto Doc Ref feature. <strong>Deprecated</strong></li>
-<li><strong>enable_math</strong>: enable the Math Formula feature.</li>
-<li><strong>enable_inline_math</strong>: enable the Inline Math feature.</li>
-<li><strong>enable_eval_rst</strong>: enable the evaluate embedded reStructuredText feature.</li>
-<li><strong>url_resolver</strong>: a function that maps a existing relative position in the document to a http link</li>
-<li><strong>known_url_schemes</strong>: a list of url schemes to treat as URLs, schemes not in this list will be assumed to be Sphinx cross-references.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>, which means treat all URL schemes as URLs.
-Example: <code class="docutils literal notranslate"><span class="pre">['http',</span> <span class="pre">'https',</span> <span class="pre">'mailto']</span></code></li>
-</ul>
-</div>
-</div>
-<div class="section" id="development">
-<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
-<p>You can run the tests by running <code class="docutils literal notranslate"><span class="pre">tox</span></code> in the top-level of the project.</p>
-<p>We are working to expand test coverage,
-but this will at least test basic Python 2 and 3 compatability.</p>
-</div>
-<div class="section" id="why-a-bridge">
-<h2>Why a bridge?<a class="headerlink" href="#why-a-bridge" title="Permalink to this headline">¶</a></h2>
-<p>Many python tools (mostly for documentation creation) rely on <code class="docutils literal notranslate"><span class="pre">docutils</span></code>.
-But <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/doctree.html">docutils</a> only supports a ReStructuredText syntax.</p>
-<p>For instance <a class="reference external" href="https://bitbucket.org/birkenfeld/sphinx/issue/825/markdown-capable-sphinx">this issue</a> and <a class="reference external" href="http://stackoverflow.com/questions/2471804/using-sphinx-with-markdown-instead-of-rst">this StackOverflow
-question</a> show that there is an interest in allowing <code class="docutils literal notranslate"><span class="pre">docutils</span></code>
-to use markdown as an alternative syntax.</p>
-</div>
-<div class="section" id="why-another-bridge-to-docutils">
-<h2>Why another bridge to docutils?<a class="headerlink" href="#why-another-bridge-to-docutils" title="Permalink to this headline">¶</a></h2>
-<p>recommonmark uses the <a class="reference external" href="https://github.com/rtfd/CommonMark-py">python implementation</a> of <a class="reference external" href="http://commonmark.org">CommonMark</a> while
-<a class="reference external" href="https://github.com/sgenoud/remarkdown">remarkdown</a> implements a stand-alone parser leveraging <a class="reference external" href="https://github.com/python-parsley/parsley">parsley</a>.</p>
-<p>Both output a <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/doctree.html"><code class="docutils literal notranslate"><span class="pre">docutils</span></code> document tree</a> and provide scripts
-that leverage <code class="docutils literal notranslate"><span class="pre">docutils</span></code> for generation of different types of documents.</p>
-</div>
-<div class="section" id="acknowledgement">
-<h2>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permalink to this headline">¶</a></h2>
-<p>recommonmark is mainly derived from <a class="reference external" href="https://github.com/sgenoud/remarkdown">remarkdown</a> by Steve Genoud and
-leverages the python CommonMark implementation.</p>
-<p>It was originally created by <a class="reference external" href="https://github.com/lu-zero">Luca Barbato</a>,
-and is now maintained in the Read the Docs (rtfd) GitHub organization.</p>
 </div>
 </div>
 
@@ -301,7 +178,7 @@ and is now maintained in the Read the Docs (rtfd) GitHub organization.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="api_ref.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="rlload_def.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
