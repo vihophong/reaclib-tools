@@ -1,7 +1,7 @@
 Reaclib tools
 =============
 
-Parser Component
+Basics functions
 ----------------
 ```eval_rst
 .. automodule:: rlload
