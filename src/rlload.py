@@ -70,3 +70,5 @@ def getA(input):
 				print "Something wrong! ",input
 		else:
 			return int(sep[1])
+
+getnamebyz(10)
