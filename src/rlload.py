@@ -1,4 +1,4 @@
-import numpy
+import struct
 
 """This is a very simple helloWorld python script"""
 
