@@ -1,12 +1,12 @@
-"""Load reaclib ACSII file"""
-
-def getnamebyz(z):
-	"""
-	Get element name by inputing atomic number z
-
-	Parameter:
-	   z(int): atomic number z
-	"""
-	print z
-
-getnamebyz(10)
+"""This is a very simple helloWorld python script"""
+def helloWorld( msg ):
+    """
+    This is a simple function that prints a message
+ 
+    Parameters:
+       msg (str): The string to print
+    """
+ 
+    print( msg )
+ 
+helloWorld( 'Hello World' )
