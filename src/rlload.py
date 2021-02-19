@@ -1,12 +1,12 @@
 """This is a very simple helloWorld python script"""
-def helloWorld( msg ):
+def rlload( z ):
     """
     This is a simple function that prints a message
  
     Parameters:
-       msg (str): The string to print
+       z (str): The string to print
     """
  
-    print( msg )
+    print( z )
  
-helloWorld( 'Hello World' )
+rlload( 10 )
