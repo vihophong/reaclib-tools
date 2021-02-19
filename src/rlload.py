@@ -1,8 +1,8 @@
-"""This is a very simple helloWorld python script"""
-
 import struct
 import numpy as np
 import re
+
+"""This is a very simple helloWorld python script"""
 
 def rlload( z ):
     """
