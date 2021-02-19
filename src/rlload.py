@@ -1,5 +1,3 @@
-import numpy
-
 import re
 
 """This is a very simple helloWorld python script"""
