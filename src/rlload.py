@@ -1,8 +1,8 @@
 import numpy
 
-import struct
-
 """This is a very simple helloWorld python script"""
+
+import struct
 
 def rlload( z ):
     """
