@@ -167,45 +167,114 @@
 <h1>Reaclib tools<a class="headerlink" href="#reaclib-tools" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-rlload">
 <span id="basics-functions"></span><h2>Basics functions<a class="headerlink" href="#module-rlload" title="Permalink to this headline">¶</a></h2>
+<p>This contains functions to manipulate reaclib v2 data file</p>
 <dl class="function">
 <dt id="rlload.convert">
 <code class="descclassname">rlload.</code><code class="descname">convert</code><span class="sig-paren">(</span><em>infile</em>, <em>outfile</em><span class="sig-paren">)</span><a class="headerlink" href="#rlload.convert" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Convert reaclib data file to a binary file for easy read
+:param infile: Reaclib data file
+:type infile: str
+:param outfile: Output binary file
+:type outfile: str</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="rlload.dump_bin">
 <code class="descclassname">rlload.</code><code class="descname">dump_bin</code><span class="sig-paren">(</span><em>reaclib</em>, <em>outfile</em><span class="sig-paren">)</span><a class="headerlink" href="#rlload.dump_bin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Write an array of dictionaries containing reaclib data to a binary file for easy read</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reaclib</strong> (<em>list</em>) – Array of dictionaries with reaclib data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="rlload.dump_txt">
 <code class="descclassname">rlload.</code><code class="descname">dump_txt</code><span class="sig-paren">(</span><em>reaclib</em><span class="sig-paren">)</span><a class="headerlink" href="#rlload.dump_txt" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Write an array of dictionaries containing reaclib data to an acsii text file with reaclib format</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reaclib</strong> (<em>list</em>) – Array of dictionaries with reaclib data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="rlload.getA">
 <code class="descclassname">rlload.</code><code class="descname">getA</code><span class="sig-paren">(</span><em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#rlload.getA" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get mass number A by element name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input</strong> (<em>str</em>) – Element name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="rlload.getZ">
 <code class="descclassname">rlload.</code><code class="descname">getZ</code><span class="sig-paren">(</span><em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#rlload.getZ" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get atomic number Z by element name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input</strong> (<em>str</em>) – Element name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="rlload.getnamebyz">
 <code class="descclassname">rlload.</code><code class="descname">getnamebyz</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#rlload.getnamebyz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get element name by atomic number Z</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>z</strong> (<em>int</em>) – Atomic number Z</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="rlload.load_bin">
 <code class="descclassname">rlload.</code><code class="descname">load_bin</code><span class="sig-paren">(</span><em>infile</em><span class="sig-paren">)</span><a class="headerlink" href="#rlload.load_bin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load binary file written by this script</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input</strong> (<em>str</em>) – File path-name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="rlload.load_txt">
 <code class="descclassname">rlload.</code><code class="descname">load_txt</code><span class="sig-paren">(</span><em>infile</em><span class="sig-paren">)</span><a class="headerlink" href="#rlload.load_txt" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load reaclibv2 file and write it to an array of dictionaries</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input</strong> (<em>str</em>) – File path-name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 </div>
