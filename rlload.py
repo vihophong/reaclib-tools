@@ -1,3 +1,5 @@
+"""This contains functions to manipulate reaclib v2 data file"""
+
 import struct
 import numpy as np
 import re
@@ -14,11 +16,23 @@ elements={"h": 1, "he": 2, "li": 3, "be": 4, "b": 5, "c": 6, "n": 7, "o": 8, "f"
        "al-":119, "al*": 120}
 
 def getnamebyz(z):
+	"""
+	Get element name by atomic number Z
+	
+	Parameters:
+	   z ( int ): Atomic number Z
+	"""
 	keys=elements.keys()
 	values=elements.values()
 	return keys[values.index(z)]
 
 def getZ(input):
+	"""
+	Get atomic number Z by element name
+	
+	Parameters:
+	   input ( str ): Element name
+	"""
 	if (input==""):
 		return -8888
 	else:
@@ -34,6 +48,12 @@ def getZ(input):
 			return int(elements[sep[0]])
 
 def getA(input):
+	"""
+	Get mass number A by element name
+	
+	Parameters:
+	   input ( str ): Element name
+	"""
 	if (input==""):
 		return -9999
 	else:
@@ -54,6 +74,12 @@ def getA(input):
 
 
 def load_txt(infile):
+	"""
+	Load reaclibv2 file and write it to an array of dictionaries
+	
+	Parameters:
+	   input ( str ): File path-name
+	"""
 	n_lines = sum(1 for line in open(infile))
 	file1 = open(infile);
 	count = 0
@@ -93,9 +119,21 @@ def load_txt(infile):
 	return reaclib
 
 def load_bin(infile):
+	"""
+	Load binary file written by this script
+	
+	Parameters:
+	   input ( str ): File path-name
+	"""
 	return np.load(infile,allow_pickle='TRUE')
 
 def dump_txt(reaclib):
+	"""
+	Write an array of dictionaries containing reaclib data to an acsii text file with reaclib format
+	
+	Parameters:
+	   reaclib ( list ):  Array of dictionaries with reaclib data
+	"""
 	for index in range(len(reaclib)):
 		print("{0:d}".format(reaclib[index]["chap"]))
 		tmp="{:>5s}{:>5s}{:>5s}{:>5s}{:>5s}{:>5s}{:>5s}{:>8s}{:>4s}{:>1s}{:>1s}{:>3s}{:>12.5e}{:>10s}".format("",reaclib[index]["nuc"][0],reaclib[index]["nuc"][1],reaclib[index]["nuc"][2],reaclib[index]["nuc"][3],
@@ -108,8 +146,21 @@ def dump_txt(reaclib):
 		print tmp
 		
 def dump_bin(reaclib,outfile):
+	"""
+	Write an array of dictionaries containing reaclib data to a binary file for easy read
+	
+	Parameters:
+	   reaclib ( list ):  Array of dictionaries with reaclib data
+	"""
 	np.save(outfile,reaclib)
 
 def convert(infile,outfile):
+        """
+	Convert reaclib data file to a binary file for easy read
+	
+	Parameters:
+	   infile ( str ):  Reaclib data file
+	   outfile ( str ): Output binary file
+	"""
 	reaclib=load_txt(infile)
 	dump(reaclib,outfile)
