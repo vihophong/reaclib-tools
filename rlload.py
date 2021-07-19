@@ -163,4 +163,4 @@ def convert(infile,outfile):
 	   outfile ( str ): Output binary file
 	"""
 	reaclib=load_txt(infile)
-	dump(reaclib,outfile)
+	dump_bin(reaclib,outfile)
