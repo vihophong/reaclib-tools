@@ -1,0 +1,1 @@
+/usr/bin/g++ -fPIC -shared -Wl,-soname,_Webnucleo.so -o _Webnucleo.so CMakeFiles/Webnucleo.dir/CMakeFiles/Webnucleo.dir/WebnucleoPYTHON_wrap.cxx.o CMakeFiles/Webnucleo.dir/webnucleo.cpp.o  -Wl,-rpath,/home/phong/projects/update_reaclib_230628/reaclib-tools/webnucleo/build libtinyxml2.so 
